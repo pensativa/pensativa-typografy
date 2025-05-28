@@ -42,16 +42,19 @@
 
   <!-- Галерея результата -->
 
-    <section class="case-gallery section-padding">
+    <section class="case-gallery">
       <div class="container">
         <h2><?php the_field('gallery_title'); ?></h2>
         <div class="gallery">
             <?php for ($i = 1; $i <= 4; $i++): 
             $image = get_field("result_image_{$i}");
             if ($image): ?>
-                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                <img class="gallery__image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
             <?php endif; endfor; ?>
         </div>
+        <div class="swiper-left"></div>
+        <div class="swiper-right"></div>
+        <div class="swiper-dots"></div>
       </div>
     </section>
 
