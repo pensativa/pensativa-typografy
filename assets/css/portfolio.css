@@ -36,6 +36,7 @@ section + section {
     display: flex;
     width: calc(1400px * 4);
     transition: transform 0.5s ease-in-out;
+    height: 700px;
 }
 
 .gallery__image {
@@ -44,6 +45,7 @@ section + section {
     text-align: center;
     padding-bottom: 0;
     border-bottom: 0;
+    object-fit: cover;
 }
 
 .gallery__left,
