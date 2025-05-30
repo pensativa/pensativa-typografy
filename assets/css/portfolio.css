@@ -24,6 +24,10 @@ section + section {
     margin-bottom: 10px;
 }
 
+.case-gallery .container {
+    overflow: hidden
+}
+
 .gallery {
     display: flex;
     width: calc(1400px * 4);
