@@ -1,6 +1,6 @@
 <section class="portfolio">
   <div class="container">
-    <div class="portfolio_">
+    <div class="portfolio__header">
       <h2 class="portfolio__title"><?php the_field('projects_title'); ?></h2>
       <p class="portfolio__text"><?php the_field('projects_text'); ?></p>
     </div>

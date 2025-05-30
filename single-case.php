@@ -40,21 +40,21 @@
       </div>
     </section>
 
-  <!-- Галерея результата -->
-
     <section class="case-gallery">
       <div class="container">
         <h2><?php the_field('gallery_title'); ?></h2>
         <div class="gallery">
+          <div class="gallery__container">
             <?php for ($i = 1; $i <= 4; $i++): 
             $image = get_field("result_image_{$i}");
             if ($image): ?>
                 <img class="gallery__image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
             <?php endif; endfor; ?>
+          </div>
+          <div class="gallery__left"></div>
+          <div class="gallery__right"></div>
+          <div class="gallery__dots"></div>
         </div>
-        <div class="swiper-left"></div>
-        <div class="swiper-right"></div>
-        <div class="swiper-dots"></div>
       </div>
     </section>
 

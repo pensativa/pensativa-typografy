@@ -6,11 +6,11 @@ let jsSliderInitOnce = !1,
 // Slider init
 function jsSliderCreate(sliderBlock, container, autoplay = false, count = 1, gap = 0) {
     const slider = document.querySelector(sliderBlock);
-    const sliderContainer = document.querySelector(`${sliderBlock} ${container}`);
-    const slides = document.querySelectorAll(`${sliderBlock} .gallery__img`);
-    const sliderBtnPrev = document.querySelector(`${sliderBlock} .swiper-left`);
-    const sliderBtnNext = document.querySelector(`${sliderBlock} .swiper-right`);
-    let sliderDotsContainer = document.querySelector(`${sliderBlock} .swiper-dots`);
+    const sliderContainer = document.querySelector(container);
+    const slides = document.querySelectorAll(`.gallery__image`);
+    const sliderBtnPrev = document.querySelector(`.gallery__left`);
+    const sliderBtnNext = document.querySelector(`.gallery__right`);
+    let sliderDotsContainer = document.querySelector(`.gallery__dots`);
 
     if (!slider || 
         !sliderContainer || 
@@ -45,7 +45,7 @@ function jsSliderCreate(sliderBlock, container, autoplay = false, count = 1, gap
             sliderDotsContainer.innerHTML = '';
             for (let i = 0; i < numOfDots; i++) {
                 const dot = document.createElement('span');
-                dot.classList.add('swiper-dot');
+                dot.classList.add('gallery__dot');
                 dot.addEventListener('click', () => goToSlide(i));
                 sliderDotsContainer.appendChild(dot);
             }
@@ -56,7 +56,7 @@ function jsSliderCreate(sliderBlock, container, autoplay = false, count = 1, gap
     // Update active dot
     function updateActiveDot() {
         if (sliderDotsContainer) {
-            const dots = sliderDotsContainer.querySelectorAll('.swiper-dot');
+            const dots = sliderDotsContainer.querySelectorAll('.gallery__dot');
             dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === numIndex);
                 dot.classList.toggle('animate', i === numIndex);
@@ -84,7 +84,7 @@ function jsSliderCreate(sliderBlock, container, autoplay = false, count = 1, gap
     // Auto-changing with Intersection Observer
     function autoChange() {
         if (autoplay) {
-            timer = setInterval(() => goToSlide(numIndex + 1), 5000);
+            timer = setInterval(() => goToSlide(numIndex + 1), 8000);
         }
     }
 
@@ -197,7 +197,7 @@ function jsSliderInit() {
     window.addEventListener('scroll', () => {
 
         // create exclusives slider
-        jsSliderExclusives = jsSliderCreate('.case-gallery', '.gallery', true);
+        jsSliderExclusives = jsSliderCreate('.gallery', '.gallery__container', true);
 
     }, {passive: true, once: true});
 }

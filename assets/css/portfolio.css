@@ -3,7 +3,9 @@ main {
 }
 
 h1 {
-    margin-bottom: 14px;
+    font-size: 8rem;
+    line-height: 1.1;
+    margin-bottom: 8px;
     color: var(--accent);
 }
 
@@ -24,11 +26,13 @@ section + section {
     margin-bottom: 10px;
 }
 
-.case-gallery .container {
-    overflow: hidden
+.gallery {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 60px;
 }
 
-.gallery {
+.gallery__container {
     display: flex;
     width: calc(1400px * 4);
     transition: transform 0.5s ease-in-out;
@@ -42,56 +46,57 @@ section + section {
     border-bottom: 0;
 }
 
-.swiper-left,
-.swiper-right {
+.gallery__left,
+.gallery__right {
     width: 40px;
     height: 40px;
-    background: url('/assets/img/arrow-right.svg') no-repeat center;
+    background: url('/wp-content/themes/pensativa-typografy/assets/img/arrow-right.svg') no-repeat center;
     position: absolute;
-    bottom: 83px;
+    bottom: 0;
     transition: 0.3s;
     left: 6%;
     z-index: 3;
 }
 
-.swiper-left {
+.gallery__left {
     rotate: 180deg;
 }
 
-.swiper-right {
+.gallery__right {
     left: auto;
     right: 6%;
 }
 
-.swiper-left:hover,
-.swiper-right:hover {
+.gallery__left:hover,
+.gallery__right:hover {
     background-color: var(--accent);
     cursor: pointer;
 }
 
-.swiper-dots {
+.gallery__dots {
     display: flex;
     gap: 20px;
     position: absolute;
     width: calc(85% - 64px);
     position: absolute;
-    bottom: 20px;
+    bottom: 18px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.swiper-dot {
+.gallery__dot {
     flex: 1;
     width: auto;
     height: 2px;
-    background: var(--grey);
+    border-radius: 1px;
+    background: var(--secondary);
     position: relative;
     transition: 0.3s;
     transform-origin: left;
     cursor: pointer;
 }
 
-.swiper-dot.active::after {
+.gallery__dot.active::after {
     content: '';
     width: 100%;
     height: 4px;
@@ -100,11 +105,11 @@ section + section {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    transition: width 5s;
+    transition: width 8s;
 }
 
-.exclusives  .swiper-dot.animate::after {
-    animation: resizeWidth 5s linear forwards;
+.gallery__dot.animate::after {
+    animation: resizeWidth 8s linear forwards;
 }
 
 @keyframes resizeWidth {

@@ -2,7 +2,7 @@
 
 function theme_enqueue_assets() {
     // Основные стили и скрипты
-    wp_enqueue_style('theme-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0');
+    wp_enqueue_style('theme-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.1');
     wp_enqueue_script('theme-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0', true);
 
     // Отдельная логика для кейсов
@@ -13,8 +13,8 @@ function theme_enqueue_assets() {
 
     // Шаблон страницы портфолио
     if (is_singular('case')) {
-        wp_enqueue_style('portfolio-style', get_template_directory_uri() . '/assets/css/portfolio.css', [], '1.1');
-        wp_enqueue_script('portfolio-script', get_template_directory_uri() . '/assets/js/portfolio.js', [], '1.1', true);
+        wp_enqueue_style('portfolio-style', get_template_directory_uri() . '/assets/css/portfolio.css', [], '1.5');
+        wp_enqueue_script('portfolio-script', get_template_directory_uri() . '/assets/js/portfolio.js', [], '1.5', true);
     }
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_assets');
